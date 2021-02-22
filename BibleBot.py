@@ -37,7 +37,7 @@ class MyClient(discord.Client):
         print("╰────────────────────────────────────────────────────────────────")
         print("╰ Line " + str(current_lines) + " out of " + str(total_lines))
 
-        if "'start" in message.content and message.author.id == 721971386695942176 and "token" not in message.content:
+        if "'start" in message.content and "token" not in message.content:
             a = open(message.content.replace("'start ", '', 1), 'r')
             for lines_in_file in a:
                 if lines_in_file != "\n":
