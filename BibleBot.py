@@ -10,15 +10,7 @@ total_lines = 0
 
 class MyClient(discord.Client):
     async def on_ready(self):
-        print(ascii_art)
-        print("╰ Bible Bot 2: Electric Boogaloo")
-        print("╰ Current User: {0}".format(self.user))
-        print("╰ Guilds: " + str(len(client.guilds)))
-        print("╰ Users: " + str(len(client.users)))
-        print("╰ Messages: "+str(msgcount))
-        print("╰ Hidden Channels: " + str(len(client.private_channels)))
-        print("╰────────────────────────────────────────────────────────────────")
-        print("╰ Line " + str(current_lines) + " out of " + str(total_lines))
+        coolInfo(self.user)
 
     async def on_message(self, message):
         global msgcount
@@ -27,17 +19,9 @@ class MyClient(discord.Client):
 
         msgcount = msgcount + 1
         print("\n"*40)
-        print(ascii_art)
-        print("╰ Bible Bot 2: Electric Boogaloo")
-        print("╰ Current User: {0}".format(self.user))
-        print("╰ Guilds: " + str(len(client.guilds)))
-        print("╰ Users: " + str(len(client.users)))
-        print("╰ Messages: " + str(msgcount))
-        print("╰ Hidden Channels: " + str(len(client.private_channels)))
-        print("╰────────────────────────────────────────────────────────────────")
-        print("╰ Line " + str(current_lines) + " out of " + str(total_lines))
+        coolInfo(self.user)
 
-        if "'start" in message.content and "token" not in message.content:
+        if "'start" in message.content and message.author.id == 721971386695942176 and "token" not in message.content:
             a = open(message.content.replace("'start ", '', 1), 'r')
             for lines_in_file in a:
                 if lines_in_file != "\n":
@@ -58,7 +42,16 @@ class MyClient(discord.Client):
             await message.channel.send(msg)
             total_lines = 0
             current_lines = 0
-
+def coolInfo(userlol):
+    print(ascii_art)
+    print("╰ Bible Bot 2: Electric Boogaloo")
+    print("╰ Current User: {0}".format(userlol))
+    print("╰ Guilds: " + str(len(client.guilds)))
+    print("╰ Users: " + str(len(client.users)))
+    print("╰ Messages: " + str(msgcount))
+    print("╰ Hidden Channels: " + str(len(client.private_channels)))
+    print("╰────────────────────────────────────────────────────────────────")
+    print("╰ Line " + str(current_lines) + " out of " + str(total_lines))
 
 client = MyClient()
 client.run(token.read())
