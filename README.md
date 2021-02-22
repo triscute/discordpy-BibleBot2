@@ -1,6 +1,6 @@
 # discordpy-BibleBot2
 Made for printing the bible in discord lol
-if you wanna do the bible you are gonna have to fine your own bible to use for this
+if you wanna do the bible you are gonna have to find your own bible to use for this
 
 
 once you get the bot up and running you just type
