@@ -20,6 +20,9 @@ class MyClient(discord.Client):
         msgcount = msgcount + 1
         print("\n"*40)
         coolInfo(self.user)
+        
+        if message.content == "'progress":
+            await message.channel.send("╰ Line " + str(current_lines) + " out of " + str(total_lines))
 
         if "'start" in message.content and message.author.id == 721971386695942176 and "token" not in message.content:
             a = open(message.content.replace("'start ", '', 1), 'r')
